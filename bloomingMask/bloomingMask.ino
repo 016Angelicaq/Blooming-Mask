@@ -1,5 +1,5 @@
 // C++ code
-//Blooming Mask Coding
+//Blooming Mask Code
 #include <Adafruit_NeoPixel.h>
 Adafruit_NeoPixel strip(12, 6);
 
