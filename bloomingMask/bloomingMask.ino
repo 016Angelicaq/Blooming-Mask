@@ -1,10 +1,7 @@
 // C++ code
 //Blooming Mask Coding
 #include <Adafruit_NeoPixel.h>
-Adafruit_NeoPixel strip(8, 6);
-uint32_t RED = strip.Color(200, 0, 0);
-uint32_t WHITE = strip.Color(200, 200, 200);
-uint32_t GREEN = strip.Color(0, 200, 0);
+Adafruit_NeoPixel strip(12, 6);
 
 int mPin=10;
 int mVal;
@@ -28,12 +25,26 @@ void loop()
   
   if (mVal < motion){
     strip.clear();
-strip.fill(RED);//alternate between red and pink
-    strip.show();
+  for(int i=0; i<strip.numPixels();i+=2){
+    strip.setPixelColor(i,144, 238, 144); //green
+  }
+  
+  for (int i=1; i<strip.numPixels(); i+=2){
+    strip.setPixelColor(i,243, 207, 198); //pink
+
+  }
+  strip.show(); 
   }
   else{
     strip.clear();
-    strip.fill (GREEN);// and blue
-    strip.show();
+   for(int i=0; i<strip.numPixels();i+=2){
+    strip.setPixelColor(i,65,105,225); //blue
+  }
+  
+  for (int i=1; i<strip.numPixels(); i+=2){
+    strip.setPixelColor(i,93, 63, 211); //purple
+
+  }
+  strip.show(); 
   }
 }
